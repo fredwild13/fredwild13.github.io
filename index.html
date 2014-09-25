@@ -1,0 +1,74 @@
+<html>
+<Body>
+<center>
+<h2> Welcome to the 2048 Beta Test Page.</h2>
+Login below with the given Username and Password.<br><br><br>
+
+<script type = "text/javascript">
+
+var count = 2;
+function validate() {
+var un = document.myform.username.value;
+var pw = document.myform.pword.value;
+var valid = false;
+
+var unArray = ["2048v1"];  // as many as you like - no comma after final entry
+var pwArray = ["betatest"];  // the corresponding passwords;
+
+for (var i=0; i <unArray.length; i++) {
+if ((un == unArray[i]) && (pw == pwArray[i])) {
+valid = true;
+break;
+}
+}
+
+if (valid) {
+alert ("Login was successful. Redirecting you now!");
+window.location = "http://fredwild22.github.io/";
+return false;
+}
+
+var t = " tries";
+if (count == 1) {t = " try"}
+
+if (count >= 1) {
+alert ("Invalid username and/or password.  You have " + count + t + " left.");
+document.myform.username.value = "";
+document.myform.pword.value = "";
+setTimeout("document.myform.username.focus()", 25);
+setTimeout("document.myform.username.select()", 25);
+count --;
+}
+
+else {
+alert ("Still incorrect! You have no more tries left!");
+document.myform.username.value = "No more tries allowed!";
+document.myform.pword.value = "No more tries allowed";
+document.myform.username.disabled = true;
+document.myform.pword.disabled = true;
+return false;
+}
+
+}
+
+</script>
+
+<form name = "myform">
+<p>Username: <input type="text" name="username"> Password: <input type="password" name="pword">
+<input type="button" value="Login" name="Submit" onclick= "validate()">
+</p>
+
+</form>
+<h6>All work beyond this point is currently at the beta test stage. By clicking Login you are agreeing that you will not distribute the link and username/password to anyone other than yourself.
+<br>
+<br>
+<br>
+If you are using Internet Explorer please click "Allow Blocked Content" in the Internet Explorer ActiveX Controls
+<br>
+<br>
+
+Have the username and password and still can't get in? Contact Fred Wild at fredwild22@gmail.com
+<br><br>
+
+</body>
+</html>
